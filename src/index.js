@@ -6,10 +6,15 @@ const PORT = 3000;
 const mongoose = require('mongoose');
 const config = require('./config.json')
 const todoRouter = require('./todos.route');
+const usersRouter = require('./users.route');
+const cors = require('cors')
 
+
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(todoRouter);
+app.use(usersRouter);
 
 
 const main = async (config) => {
