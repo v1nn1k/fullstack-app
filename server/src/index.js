@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const config = require('./config/default.json')
 const todoRouter = require('./routes/todos.route');
+const usersRouter = require('./routes/users.route');
 const createLogger = require('./utils/logger')
 const cors = require('cors');
 
@@ -13,6 +14,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(todoRouter);
+app.use(usersRouter);
 
 
 if (process.env.NODE_ENV !== 'production') {
